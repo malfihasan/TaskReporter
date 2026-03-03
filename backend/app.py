@@ -13,6 +13,13 @@ from datetime import datetime
 import markdown
 import frontmatter
 
+# Import LLM functions
+try:
+    from lib_common import get_task_suggestions, create_task_story
+    LLM_AVAILABLE = True
+except ImportError:
+    LLM_AVAILABLE = False
+
 app = Flask(__name__)
 
 # Configure CORS - add your domain here
@@ -391,11 +398,46 @@ def get_stats():
     })
 
 
+# LLM Task Suggestions API
+
+@app.route('/api/ai/suggestions', methods=['POST'])
+def get_suggestions():
+    """Get AI task suggestions based on user description"""
+    if not LLM_AVAILABLE:
+        return jsonify({'error': 'LLM functionality not available. Check OPENROUTER_API_KEY environment variable.'}), 503
+    
+    data = request.json
+    task_description = data.get('description', '')
+    
+    if not task_description.strip():
+        return jsonify({'error': 'Task description is required'}), 400
+    
+    result = get_task_suggestions(task_description)
+    return jsonify(result)
+
+
+@app.route('/api/ai/create-story', methods=['POST'])
+def create_story():
+    """Create a task story based on selected suggestion"""
+    if not LLM_AVAILABLE:
+        return jsonify({'error': 'LLM functionality not available'}), 503
+    
+    data = request.json
+    selected_idea = data.get('selectedIdea', '')
+    original_description = data.get('originalDescription', '')
+    
+    if not selected_idea.strip():
+        return jsonify({'error': 'Selected idea is required'}), 400
+    
+    result = create_task_story(selected_idea, original_description)
+    return jsonify(result)
+
+
 # Health check
 @app.route('/api/health', methods=['GET'])
 def health():
     """Health check endpoint"""
-    return jsonify({'status': 'ok', 'version': '1.0.0'})
+    return jsonify({'status': 'ok', 'version': '1.0.0', 'llm_available': LLM_AVAILABLE})
 
 
 if __name__ == '__main__':

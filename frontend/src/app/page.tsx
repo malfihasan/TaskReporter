@@ -178,10 +178,12 @@ export default function Home() {
         selectedPage={selectedPage}
         tasks={tasks}
         stats={stats}
+        onCreatePage={handleCreatePage}
         onCreateTask={handleCreateTask}
         onUpdateTask={handleUpdateTask}
         onDeleteTask={handleDeleteTask}
         onPageUpdate={handlePageUpdate}
+        onViewChange={setView}
       />
     </div>
   );

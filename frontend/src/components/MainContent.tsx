@@ -10,10 +10,12 @@ interface MainContentProps {
   selectedPage: string | null;
   tasks: Task[];
   stats: Stats | null;
+  onCreatePage: () => void;
   onCreateTask: (taskData: Partial<Task>) => void;
   onUpdateTask: (taskId: string, taskData: Partial<Task>) => void;
   onDeleteTask: (taskId: string) => void;
   onPageUpdate: () => void;
+  onViewChange: (view: 'page' | 'tasks' | 'dashboard') => void;
 }
 
 export default function MainContent({
@@ -21,14 +23,23 @@ export default function MainContent({
   selectedPage,
   tasks,
   stats,
+  onCreatePage,
   onCreateTask,
   onUpdateTask,
   onDeleteTask,
   onPageUpdate,
+  onViewChange,
 }: MainContentProps) {
   return (
     <main className="flex-1 overflow-y-auto bg-white dark:bg-notion-bg-dark">
-      {view === 'dashboard' && <Dashboard stats={stats} tasks={tasks} />}
+      {view === 'dashboard' && (
+        <Dashboard 
+          stats={stats} 
+          tasks={tasks} 
+          onCreatePage={onCreatePage}
+          onViewTasks={() => onViewChange('tasks')}
+        />
+      )}
       
       {view === 'tasks' && (
         <TaskList

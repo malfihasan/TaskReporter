@@ -17,7 +17,7 @@
     "id": "task-002",
     "title": "Create documentation",
     "description": "Write comprehensive documentation for the project",
-    "status": "in-progress",
+    "status": "done",
     "priority": "medium",
     "dueDate": "2026-03-10",
     "tags": [
@@ -25,7 +25,7 @@
     ],
     "pageRef": "quick-start.md",
     "created": "2026-03-02T00:00:00",
-    "updated": "2026-03-02T00:00:00"
+    "updated": "2026-03-03T08:22:45.564063"
   },
   {
     "id": "task-003",
@@ -45,12 +45,24 @@
     "id": "28b25591-e0f9-4445-b3d9-cbd168759d7e",
     "title": "Prepare for interview ",
     "description": "",
-    "status": "todo",
+    "status": "done",
     "priority": "medium",
     "dueDate": "1971-10-16",
     "tags": [],
     "pageRef": null,
     "created": "2026-03-03T04:16:18.630808",
-    "updated": "2026-03-03T04:16:18.630831"
+    "updated": "2026-03-03T08:14:29.645303"
+  },
+  {
+    "id": "81191ecb-acda-4d8f-8460-f2c898695360",
+    "title": "Decompose Task into Subtasks",
+    "description": "Break down the 'try again' task into smaller, actionable steps. Identify specific actions or milestones that can be completed individually, ensuring each step is clear and manageable.",
+    "status": "todo",
+    "priority": "medium",
+    "dueDate": null,
+    "tags": [],
+    "pageRef": null,
+    "created": "2026-03-03T08:23:37.685171",
+    "updated": "2026-03-03T08:23:37.685188"
   }
 ]

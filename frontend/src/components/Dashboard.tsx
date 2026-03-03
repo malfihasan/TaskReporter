@@ -7,9 +7,11 @@ import { format } from 'date-fns';
 interface DashboardProps {
   stats: Stats | null;
   tasks: Task[];
+  onCreatePage: () => void;
+  onViewTasks: () => void;
 }
 
-export default function Dashboard({ stats, tasks }: DashboardProps) {
+export default function Dashboard({ stats, tasks, onCreatePage, onViewTasks }: DashboardProps) {
   const recentTasks = tasks
     .sort((a, b) => new Date(b.updated).getTime() - new Date(a.updated).getTime())
     .slice(0, 5);
@@ -158,11 +160,17 @@ export default function Dashboard({ stats, tasks }: DashboardProps) {
           Create pages to organize your notes and documents. Add tasks to track your work.
         </p>
         <div className="flex gap-4">
-          <button className="px-4 py-2 bg-white text-primary-600 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors">
+          <button 
+            onClick={() => onCreatePage()}
+            className="px-4 py-2 bg-white text-primary-600 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors"
+          >
             Create Your First Page
           </button>
-          <button className="px-4 py-2 bg-white/20 rounded-lg text-sm font-medium hover:bg-white/30 transition-colors">
-            Learn More
+          <button 
+            onClick={onViewTasks}
+            className="px-4 py-2 bg-white/20 rounded-lg text-sm font-medium hover:bg-white/30 transition-colors"
+          >
+            View Tasks
           </button>
         </div>
       </div>

@@ -15,6 +15,7 @@ import {
   Save,
 } from 'lucide-react';
 import { format } from 'date-fns';
+import TaskChat from './TaskChat';
 
 interface TaskListProps {
   tasks: Task[];
@@ -32,6 +33,7 @@ export default function TaskList({
   const [showNewTask, setShowNewTask] = useState(false);
   const [editingTask, setEditingTask] = useState<string | null>(null);
   const [filter, setFilter] = useState<'all' | 'todo' | 'in-progress' | 'done'>('all');
+  const [showChat, setShowChat] = useState(false);
   const [newTask, setNewTask] = useState({
     title: '',
     description: '',
@@ -84,10 +86,31 @@ export default function TaskList({
     const currentIndex = statusOrder.indexOf(task.status);
     const nextStatus = statusOrder[(currentIndex + 1) % statusOrder.length];
     onUpdateTask(task.id, { status: nextStatus });
+    
+    // Show chat when task is completed
+    if (nextStatus === 'done') {
+      setShowChat(true);
+    }
+  };
+
+  const handleChatCreateTask = (taskData: { title: string; description: string }) => {
+    onCreateTask({
+      ...taskData,
+      status: 'todo',
+      priority: 'medium',
+      tags: [],
+    });
   };
 
   return (
     <div className="max-w-4xl mx-auto p-8">
+      {/* AI Task Chat */}
+      <TaskChat
+        isOpen={showChat}
+        onClose={() => setShowChat(false)}
+        onCreateTask={handleChatCreateTask}
+      />
+
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-bold text-notion-text dark:text-notion-text-dark">
           Tasks
