@@ -1,6 +1,6 @@
 # TaskReporter
 
-A Notion-like task and document management system that runs locally using Markdown files as the backend storage.
+A task and document management system that runs locally using Markdown files as the backend storage.
 
 ![TaskReporter](https://img.shields.io/badge/TaskReporter-v1.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.8+-green)
