@@ -13,8 +13,8 @@ import os
 
 # Define the Open Router endpoint
 OPEN_ROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-#API_KEY = os.getenv("OPENROUTER_API_KEY") ## TODO: set in env variables
-API_KEY = "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"
+API_KEY = os.getenv("OPENROUTER_API_KEY") ## TODO: set in env variables
+
 
 #from settings import OPEN_ROUTER_URL, API_KEY
 import time
