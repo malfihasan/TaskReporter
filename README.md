@@ -87,31 +87,6 @@ TaskReporter/
 └── README.md
 ```
 
-## Deployment
-
-### Option 1: Hostinger + PythonAnywhere (Recommended - Free)
-
-Best for Hostinger users. Frontend on Hostinger, Flask backend on PythonAnywhere (free forever, no sleeping).
-
-See [deploy/PYTHONANYWHERE.md](deploy/PYTHONANYWHERE.md) for detailed instructions.
-
-### Option 2: Hostinger + Render.com
-
-Alternative free option (backend sleeps after 15 min inactivity).
-
-See [deploy/HOSTINGER.md](deploy/HOSTINGER.md) for instructions.
-
-### Option 3: Docker (VPS)
-
-```bash
-docker-compose up -d
-```
-
-### Option 4: Convert to PHP
-
-For single-host deployment on Hostinger only (no external services needed).
-
-
 ## API Endpoints
 
 | Endpoint | Method | Description |
