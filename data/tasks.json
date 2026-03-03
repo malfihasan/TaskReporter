@@ -1,0 +1,56 @@
+[
+  {
+    "id": "task-001",
+    "title": "Set up TaskReporter",
+    "description": "Complete initial setup of the TaskReporter application",
+    "status": "done",
+    "priority": "high",
+    "dueDate": "2026-03-02",
+    "tags": [
+      "setup"
+    ],
+    "pageRef": null,
+    "created": "2026-03-02T00:00:00",
+    "updated": "2026-03-02T00:00:00"
+  },
+  {
+    "id": "task-002",
+    "title": "Create documentation",
+    "description": "Write comprehensive documentation for the project",
+    "status": "in-progress",
+    "priority": "medium",
+    "dueDate": "2026-03-10",
+    "tags": [
+      "docs"
+    ],
+    "pageRef": "quick-start.md",
+    "created": "2026-03-02T00:00:00",
+    "updated": "2026-03-02T00:00:00"
+  },
+  {
+    "id": "task-003",
+    "title": "Deploy to malfihasan.com",
+    "description": "Configure deployment to the production server",
+    "status": "todo",
+    "priority": "high",
+    "dueDate": "2026-03-15",
+    "tags": [
+      "deployment"
+    ],
+    "pageRef": null,
+    "created": "2026-03-02T00:00:00",
+    "updated": "2026-03-02T00:00:00"
+  },
+  {
+    "id": "28b25591-e0f9-4445-b3d9-cbd168759d7e",
+    "title": "Prepare for interview ",
+    "description": "",
+    "status": "todo",
+    "priority": "medium",
+    "dueDate": "1971-10-16",
+    "tags": [],
+    "pageRef": null,
+    "created": "2026-03-03T04:16:18.630808",
+    "updated": "2026-03-03T04:16:18.630831"
+  }
+]

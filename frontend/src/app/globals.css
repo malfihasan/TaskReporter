@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 55, 53, 47;
+  --background-rgb: 255, 255, 255;
+  --sidebar-bg: #f7f6f3;
+}
+
+.dark {
+  --foreground-rgb: 224, 224, 224;
+  --background-rgb: 25, 25, 25;
+  --sidebar-bg: #202020;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Markdown styles */
+.markdown-body {
+  @apply text-notion-text dark:text-notion-text-dark;
+}
+
+.markdown-body h1 {
+  @apply text-4xl font-bold mb-4 mt-8;
+}
+
+.markdown-body h2 {
+  @apply text-3xl font-semibold mb-3 mt-6;
+}
+
+.markdown-body h3 {
+  @apply text-2xl font-semibold mb-2 mt-4;
+}
+
+.markdown-body p {
+  @apply mb-4 leading-relaxed;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+  @apply mb-4 pl-6;
+}
+
+.markdown-body ul {
+  @apply list-disc;
+}
+
+.markdown-body ol {
+  @apply list-decimal;
+}
+
+.markdown-body li {
+  @apply mb-1;
+}
+
+.markdown-body code {
+  @apply bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.markdown-body pre {
+  @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.markdown-body pre code {
+  @apply bg-transparent p-0;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic my-4 text-gray-600 dark:text-gray-400;
+}
+
+.markdown-body a {
+  @apply text-primary-600 dark:text-primary-400 hover:underline;
+}
+
+.markdown-body table {
+  @apply w-full border-collapse mb-4;
+}
+
+.markdown-body th,
+.markdown-body td {
+  @apply border border-gray-300 dark:border-gray-600 px-4 py-2;
+}
+
+.markdown-body th {
+  @apply bg-gray-100 dark:bg-gray-800 font-semibold;
+}
+
+.markdown-body hr {
+  @apply my-8 border-gray-300 dark:border-gray-600;
+}
+
+/* Sidebar hover effects */
+.sidebar-item {
+  @apply px-2 py-1.5 rounded cursor-pointer transition-colors duration-150;
+}
+
+.sidebar-item:hover {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+.sidebar-item.active {
+  @apply bg-gray-200 dark:bg-gray-700;
+}
+
+/* Task status colors */
+.status-todo {
+  @apply bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300;
+}
+
+.status-in-progress {
+  @apply bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300;
+}
+
+.status-done {
+  @apply bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300;
+}
+
+/* Priority colors */
+.priority-low {
+  @apply text-gray-500;
+}
+
+.priority-medium {
+  @apply text-yellow-600 dark:text-yellow-400;
+}
+
+.priority-high {
+  @apply text-red-600 dark:text-red-400;
+}
+
+/* Editor styles */
+.w-md-editor {
+  @apply bg-white dark:bg-gray-900 !important;
+}
+
+.w-md-editor-text-pre > code,
+.w-md-editor-text-input {
+  @apply text-base !important;
+}
